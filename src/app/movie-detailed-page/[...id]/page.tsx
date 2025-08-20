@@ -4,11 +4,15 @@ import Cookies from "js-cookie"
 import { useRouter } from "next/navigation"
 import Loading from "@/app/loading" // Assuming you have a loading component
 
-// Simplified the component's props for better clarity
-const MovieDetailsPage = ({ params }: { params: { id: string[] } }) => {
+// THE FIX: Defining the props type explicitly to resolve the build error.
+type PageProps = {
+  params: { id: string[] };
+};
+
+const MovieDetailsPage = ({ params }: PageProps) => {
   const { id } = params
-  // It's safer to check if 'id' is an array before accessing the first element
-  const movieId = Array.isArray(id) ? id[0] : id
+  // The 'id' from a catch-all route is an array, so we take the first element.
+  const movieId = id[0]
 
   const [movieDetails, setMovieDetails] = useState<any>(null)
   const [loading, setLoading] = useState(true)
