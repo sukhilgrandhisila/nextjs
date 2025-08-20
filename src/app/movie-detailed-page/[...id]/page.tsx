@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 import Loading from "@/app/loading" // Assuming you have a loading component
 
 // Simplified the component's props for better clarity
-const MovieDetailsPage = ({ params }: { params: { id: string } }) => {
+const MovieDetailsPage = ({ params }: { params: { id: string[] } }) => {
   const { id } = params
   // It's safer to check if 'id' is an array before accessing the first element
   const movieId = Array.isArray(id) ? id[0] : id
