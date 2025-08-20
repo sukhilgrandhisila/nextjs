@@ -11,7 +11,7 @@ export default async function HomePage() {
     throw new Error("Unauthorized – no JWT token found");
   }
 
-  const res = await fetch("http://localhost:3000/api/home", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/home`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

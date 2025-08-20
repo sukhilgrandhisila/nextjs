@@ -42,7 +42,7 @@ const MovieDetailsPage = () => {
           return;
         }
         const response = await fetch(
-          `https://apis.ccbp.in/movies-app/movies/${movieId}`,
+          `${process.env.NEXT_PUBLIC_API_URL}/${movieId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

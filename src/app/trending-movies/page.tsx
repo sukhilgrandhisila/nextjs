@@ -11,7 +11,7 @@ export default async function TrendingPage() {
   
 
   // console.log("Token:", token);
-  const res = await fetch("http://localhost:3000/api/trending",{
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/trending`,{
     method: "GET",
     headers: {
       "Content-Type": "application/json",

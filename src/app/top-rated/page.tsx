@@ -11,7 +11,7 @@ export default async function TopRatedPage() {
   
 
   // console.log("Token:", token);
-  const res = await fetch("http://localhost:3000/api/top-rated",{
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/top-rated`,{
     method: "GET",
     headers: {
       "Content-Type": "application/json",

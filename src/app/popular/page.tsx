@@ -11,7 +11,7 @@ export default async function OriginalsPage() {
   
 
   // console.log("Token:", token);
-  const res = await fetch("http://localhost:3000/api/popular",{
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/popular`,{
     method: "GET",
     headers: {
       "Content-Type": "application/json",
