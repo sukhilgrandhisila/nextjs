@@ -1,16 +1,17 @@
-"use client"
+"use client";
+
 import React, { useEffect, useState } from "react"
 import Cookies from "js-cookie"
-import { useRouter } from "next/navigation"
+import { useRouter, useParams } from "next/navigation"
 import Loading from "@/app/loading" // Assuming you have a loading component
 
 // THE FIX: Defining the props type explicitly to resolve the build error.
-type PageProps = {
-  params: { id: string[] };
-};
+// type PageProps = {
+//   params: { id: string[] };
+// };
 
-const MovieDetailsPage = ({ params }: PageProps) => {
-  const { id } = params
+const MovieDetailsPage = () => {
+  const { id } = useParams<{ id: string[] }>()
   // The 'id' from a catch-all route is an array, so we take the first element.
   const movieId = id[0]
 
