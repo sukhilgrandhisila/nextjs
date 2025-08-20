@@ -1,10 +1,6 @@
 // app/home/page.tsx
 import Navbar from "@/components/Navbar";
 import HomeComponent from "@/components/Home";
-import TrendingSection from "@/components/TrendingSection";
-import TopRatedSection from "@/components/TopRatedSection";
-import OriginalsSection from "@/components/OriginalsSection";
-import PopularSection from "@/components/PopularSection";
 import { cookies } from "next/headers";
 
 export default async function HomePage() {
