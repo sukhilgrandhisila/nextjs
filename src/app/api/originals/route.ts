@@ -13,7 +13,7 @@ export async function GET() {
   }
 
   try {
-    const res = await fetch("https://apis.ccbp.in/movies-app/trending-movies", {
+    const res = await fetch("https://apis.ccbp.in/movies-app/originals", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

@@ -1,9 +1,9 @@
 // app/trending/page.tsx
 import Navbar from "@/components/Navbar";
-import TrendingMovies from "@/components/TrendingSection";
+import TopRatedMovies from "@/components/TrendingSection";
 import { cookies } from "next/headers";
 
-export default async function TrendingPage() {
+export default async function TopRatedPage() {
 
 
   const cookieStore = await cookies();
@@ -11,7 +11,7 @@ export default async function TrendingPage() {
   
 
   // console.log("Token:", token);
-  const res = await fetch("http://localhost:3000/api/trending",{
+  const res = await fetch("http://localhost:3000/api/top-rated",{
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -27,13 +27,13 @@ export default async function TrendingPage() {
   }
 
   const data = await res.json();
-  console.log("Trending Movies Data:", data);
+  console.log("Top-rated Movies Data:", data);
 
   return (
     <div className="bg-black min-h-screen">
       <Navbar />
       <div className="pt-20 px-4">
-        <TrendingMovies movies={data?.movies} />
+        <TopRatedMovies movies={data?.movies} />
       </div>
     </div>
   );

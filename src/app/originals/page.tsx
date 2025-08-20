@@ -1,9 +1,9 @@
 // app/trending/page.tsx
 import Navbar from "@/components/Navbar";
-import TrendingMovies from "@/components/TrendingSection";
+import OriginalsSection from "@/components/TrendingSection";
 import { cookies } from "next/headers";
 
-export default async function TrendingPage() {
+export default async function OriginalsPage() {
 
 
   const cookieStore = await cookies();
@@ -11,7 +11,7 @@ export default async function TrendingPage() {
   
 
   // console.log("Token:", token);
-  const res = await fetch("http://localhost:3000/api/trending",{
+  const res = await fetch("http://localhost:3000/api/originals",{
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -33,7 +33,7 @@ export default async function TrendingPage() {
     <div className="bg-black min-h-screen">
       <Navbar />
       <div className="pt-20 px-4">
-        <TrendingMovies movies={data?.movies} />
+        <OriginalsSection movies={data?.movies} />
       </div>
     </div>
   );

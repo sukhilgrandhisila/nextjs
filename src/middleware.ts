@@ -8,10 +8,11 @@ export function middleware(request: NextRequest) {
   const publicRoutes = ["/login"];
   const protectedRoutes = [
     "/home",
-    "/trending-movies",
-    "/top-rated-movies",
+    "/trending",
+    "/top-rated",
     "/originals",
-    "/popular-movies",
+    "/popular",
+    "/"
   ];
 
   // Redirect logged-in user away from public pages

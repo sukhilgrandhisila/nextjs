@@ -26,7 +26,7 @@ function Navbar() {
     { label: "Top Rated", path: "/top-rated" },
     { label: "Originals", path: "/originals" },
     { label: "Popular", path: "/popular" },
-    { label: "My List", path: "/my-list" },
+    // { label: "My List", path: "/my-list" },
   ];
 
   const renderLinks = (isMobile = false) =>
@@ -37,7 +37,7 @@ function Navbar() {
           router.push(link.path);
           if (isMobile) setIsOpen(false);
         }}
-        className={`cursor-pointer transition-colors ${
+        className={`cursor-pointer ${
           pathname === link.path
             ? "text-red-500 font-semibold"
             : "text-white hover:text-red-500"
@@ -48,26 +48,22 @@ function Navbar() {
     ));
 
   return (
-    <nav className="bg-black fixed w-full z-50 shadow-lg">
+    <nav className="fixed w-full z-50 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Navbar container */}
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <h1
             onClick={() => router.push("/home")}
-            className="text-3xl font-extrabold text-red-600 cursor-pointer tracking-wide"
+            className="text-red-500 text-2xl font-bold cursor-pointer"
           >
             NETFLIX
           </h1>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-6 text-sm">
+          <div className="hidden md:flex items-center gap-6 text-sm text-white">
             {renderLinks()}
             {isLoggedIn && (
-              <button
-                onClick={handleLogout}
-                className="bg-red-600 px-4 py-1 rounded hover:bg-red-700 transition text-white font-semibold"
-              >
+              <button onClick={handleLogout} className="text-white">
                 Logout
               </button>
             )}
@@ -77,7 +73,7 @@ function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white focus:outline-none text-xl"
+              className="text-white focus:outline-none text-2xl"
             >
               {isOpen ? "✖" : "☰"}
             </button>
@@ -85,17 +81,17 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-black px-4 pb-4 space-y-3 text-sm border-t border-gray-800">
-          {renderLinks(true)}
+        <div className="md:hidden bg-black bg-opacity-80 text-white px-6 py-4 space-y-4">
+          <div className="flex flex-col gap-4">{renderLinks(true)}</div>
           {isLoggedIn && (
             <button
               onClick={() => {
                 handleLogout();
                 setIsOpen(false);
               }}
-              className="bg-red-600 w-full py-2 rounded hover:bg-red-700 transition text-white font-semibold"
+              className="w-full text-left text-white mt-2"
             >
               Logout
             </button>

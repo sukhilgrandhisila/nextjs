@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { BeatLoader } from "react-spinners";
 
-const loading = () => {
+const Loading = () => {
   return (
-    <div>loading</div>
-  )
-}
+    <div className="flex items-center justify-center h-screen w-screen bg-black">
+      <BeatLoader color="#ff0000" size={15} />
+    </div>
+  );
+};
 
-export default loading
+export default Loading;
